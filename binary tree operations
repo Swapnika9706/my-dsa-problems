@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+#define MAX 100
+#define EMPTY -1   // Marks empty location
+class BinaryTree {
+private:
+    int arr[MAX];
+public:
+    // Constructor initializes array
+    BinaryTree() {
+        for (int i = 0; i < MAX; i++)
+            arr[i] = EMPTY;
+    } // Insert value at given index
+    void insert(int value, int index) {
+        if (index >= MAX) {
+            cout << "Index out of bounds!\n";
+            return;
+        }
+        arr[index] = value;
+    } // Display all non-empty nodes
+    void display() {
+        cout << "Binary Tree (Array Representation):\n";
+        for (int i = 0; i < MAX; i++) {
+            if (arr[i] != EMPTY)
+                cout << "Index " << i << " : " << arr[i] << endl;
+        }
+    }
+};
+int main() {
+    BinaryTree tree;
+    // Constructing a sample binary tree:
+    //               10
+    //            /      \
+    //          20        30
+    //        /   \
+    //      40     50
+    tree.insert(10, 0); // Root
+    tree.insert(20, 1); // Left child of root
+    tree.insert(30, 2); // Right child of root
+    tree.insert(40, 3); // Left child of 20
+    tree.insert(50, 4); // Right child of 20
+     tree.display();
+return 0;
+}
